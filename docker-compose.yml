@@ -7,6 +7,8 @@ services:
       target: final
     restart: always
     command: --check-caps false --ISCAgent false
+    environment:
+      - JIRISREPORT_PATH=/home/irisowner/dev/jirisreport.jar
     ports:
       - 1972
       - 52773

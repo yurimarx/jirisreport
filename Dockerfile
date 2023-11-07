@@ -6,12 +6,8 @@ ARG IMAGE=intersystemsdc/iris-community
 ARG IMAGE=intersystemsdc/iris-community:preview
 FROM $IMAGE as builder
 
-WORKDIR /home/irisowner/dev
 
-## install git
-## USER root
-##RUN apt update && apt-get -y install git
-##USER ${ISC_PACKAGE_MGRUSER}
+WORKDIR /home/irisowner/dev
 
 ARG TESTS=0
 ARG MODULE="dc-sample"
@@ -24,6 +20,11 @@ ENV IRISNAMESPACE $NAMESPACE
 ENV PYTHON_PATH=/usr/irissys/bin/
 ENV PATH "/usr/irissys/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/irisowner/bin"
 
+COPY samplereports .
+
+COPY jirisreport.jar .
+
+ENV JIRISREPORT_PATH=/home/irisowner/dev/jirisreport.jar 
 
 RUN --mount=type=bind,src=.,dst=. \
     pip3 install -r requirements.txt && \
@@ -34,6 +35,17 @@ RUN --mount=type=bind,src=.,dst=. \
 
 
 FROM $IMAGE as final
+
+USER root
+
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+RUN apt-get update && \ 
+apt-get install ttf-mscorefonts-installer -y && \
+apt-get install fontconfig -y
+RUN fc-cache -v -f /usr/share/fonts
+
+USER ${ISC_PACKAGE_MGRUSER}
+
 ADD --chown=${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} https://github.com/grongierisc/iris-docker-multi-stage-script/releases/latest/download/copy-data.py /home/irisowner/dev/copy-data.py
 #ADD https://github.com/grongierisc/iris-docker-multi-stage-script/releases/latest/download/copy-data.py /home/irisowner/dev/copy-data.py
 

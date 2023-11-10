@@ -6,7 +6,7 @@
 	<parameter name="ptName" class="java.lang.String"/>
 	<parameter name="ptCompany" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[ select * from dc_sample."SamplePerson" where "Name" like '%$P!{ptName} %' or "Company" like '%$P!{ptCompany}%']]>
+		<![CDATA[select * from dc_jirisreport."SamplePerson" where "Name" like '%$P!{ptName} %' or "Company" like '%$P!{ptCompany}%']]>
 	</queryString>
 	<field name="ID" class="java.lang.Long">
 		<property name="com.jaspersoft.studio.field.name" value="ID"/>

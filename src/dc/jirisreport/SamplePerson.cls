@@ -1,4 +1,4 @@
-Class dc.sample.SamplePerson Extends (%Persistent, %Populate)
+Class dc.jirisreport.SamplePerson Extends (%Persistent, %Populate)
 {
 
 Property Name As %String(MAXLEN = "");

@@ -59,7 +59,7 @@
 		</queryString>
 	</subDataset>
 	<queryString language="SQL">
-		<![CDATA[select * from dc_sample."SamplePerson"]]>
+		<![CDATA[select * from dc_jirisreport."SamplePerson"]]>
 	</queryString>
 	<field name="Company" class="java.lang.String">
 		<property name="com.jaspersoft.studio.field.name" value="Company"/>

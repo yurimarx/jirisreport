@@ -8,8 +8,9 @@
       <Packaging>module</Packaging>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="dc.jirisreport.PKG"/>
-      <FileCopy Name="jirisreport.jar" Target="${libdir}jirisreport"/>
-      <FileCopy Name="samplereports" Target="${libdir}jirisreport"/>
+      <FileCopy Name="jirisreport.jar" Target="${bindir}"/>
+      <FileCopy Name="samplereports" Target="${bindir}samplereports"/>
+      <AfterInstallMessage>JIRISReport installed successfully! Pay attention, if you using Linux, install ttf-mscorefonts-installer. See more about on https://github.com/yurimarx/jirisreport</AfterInstallMessage>
     </Module>
   </Document>
 </Export>

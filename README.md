@@ -52,6 +52,10 @@ apt-get install fontconfig -y
 sudo fc-cache -v -f /usr/share/fonts
 ```
 
+## Tutorial how to use this library
+
+https://community.intersystems.com/post/part-i-jasperreports-open-source-drag-and-drop-reports-iris
+
 ## Test procedures
 
 * To all persons report

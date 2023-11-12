@@ -52,3 +52,12 @@ apt-get install fontconfig -y
 sudo fc-cache -v -f /usr/share/fonts
 ```
 
+## Test procedures
+
+* To all persons report
+1. Execute ##class(dc.jirisreport.SampleReportGenerator).CreateSampleReport() on IRISAPP namespace.
+2. See the generated file on /tmp/outsample.pdf
+
+* To filtered persons report
+1. Execute ##class(dc.jirisreport.SampleReportGenerator).CreateFilteredSampleReport() on IRISAPP namespace (if you want change parameters values inside the method).
+2. See the generated file on /tmp/out.pdf
